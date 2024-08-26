@@ -9,6 +9,13 @@
     <input type="text" id="urlInput" placeholder="enter website url" />
     <button onclick="blanco5000()">blank it</button>
 
+    <div>
+      <p>suggestions:</p>
+      <a href="https://inf.stonklat.com/" target="_blank" onclick="clearInput()">infared proxy</a>,
+      <a href="https://yt.stonklat.com/" target="_blank" onclick="clearInput()">youtube</a>,
+      <a href="https://inf.stonklat.com/uv/service/hvtrs8%2F-dksaopd%2Ccmm-" target="_blank" onclick="clearInput()">discord</a>
+    </div>
+
     <script>
       function blanco5000() {
         var url = document.getElementById("urlInput").value;
@@ -28,6 +35,10 @@
         iframe.style.border = "none";
         iframe.src = url;
         win.document.body.appendChild(iframe);
+      }
+
+      function clearInput() {
+        document.getElementById("urlInput").value = "";
       }
     </script>
   </body>
