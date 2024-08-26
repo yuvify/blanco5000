@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>blanco5000</title>
+    <style>
+      #suggestions {
+        margin-top: 5px;
+      }
+      #suggestions a {
+        margin-right: 10px;
+        cursor: pointer;
+        text-decoration: underline;
+        color: blue;
+      }
+    </style>
   </head>
   <body>
     <input type="text" id="urlInput" placeholder="enter website url" />
     <button onclick="blanco5000()">blank it</button>
 
-    <div>
-      <p>suggestions:</p>
-      <a href="https://inf.stonklat.com/" target="_blank" onclick="clearInput()">infared proxy</a>,
-      <a href="https://yt.stonklat.com/" target="_blank" onclick="clearInput()">youtube</a>,
-      <a href="https://inf.stonklat.com/uv/service/hvtrs8%2F-dksaopd%2Ccmm-" target="_blank" onclick="clearInput()">discord</a>
+    <div id="suggestions">
+      <p>suggestions: 
+        <a onclick="blankSuggestion('https://inf.stonklat.com/')">infared proxy</a>
+        <a onclick="blankSuggestion('https://yt.stonklat.com/')">youtube</a>
+        <a onclick="blankSuggestion('https://inf.stonklat.com/uv/service/hvtrs8%2F-dksaopd%2Ccmm-')">discord</a>
+      </p>
     </div>
 
     <script>
@@ -23,6 +35,15 @@
           alert("Please enter a URL.");
           return;
         }
+        blankURL(url);
+      }
+
+      function blankSuggestion(url) {
+        document.getElementById("urlInput").value = "";
+        blankURL(url);
+      }
+
+      function blankURL(url) {
         var win = window.open();
         var iframe = win.document.createElement("iframe");
         iframe.style.position = "fixed";
@@ -35,10 +56,6 @@
         iframe.style.border = "none";
         iframe.src = url;
         win.document.body.appendChild(iframe);
-      }
-
-      function clearInput() {
-        document.getElementById("urlInput").value = "";
       }
     </script>
   </body>
